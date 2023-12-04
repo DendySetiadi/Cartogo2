@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="412dp"
+        android:layout_height="273dp"
+        android:src="@drawable/mobilfix" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:name="com.example.cartogo.Lepaskunci"
+        android:layout_width="match_parent"
+        android:layout_height="590dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="155dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/lepaskunci"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="110dp"
+        android:backgroundTint="@color/blue"
+        android:text="Lepas Kunci"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dengansupir"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainer" />
+
+    <Button
+        android:id="@+id/dengansupir"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="right"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="@color/abu"
+        android:text="Dengan Supir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainer" />
+</FrameLayout>
