@@ -1,59 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Profile">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/rectangle_29"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-2dp" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:cardElevation="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/rectangle_29"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/klik"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:backgroundTint="@color/putih"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
-        <ImageView
-            android:id="@+id/profill"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="5dp"
-            app:srcCompat="@drawable/baseline_account_circle_24"
-            android:background="@drawable/circle_background"
-            android:layout_marginBottom="16dp"
-            android:scaleType="centerCrop"
-            android:clipToOutline="true"
-            android:outlineProvider="background"/>
+    <Button
+        android:id="@+id/btnPengaturan"
+        android:layout_width="407dp"
+        android:layout_height="73dp"
+        android:backgroundTint="@color/putih"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editNama"
-            android:layout_width="250dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textSize="15dp" />
+    <EditText
+        android:id="@+id/editNama1"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_marginLeft="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnPengaturan" />
 
-    </androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/mukaorang"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/baseline_account_circle_24"
+        app:layout_constraintEnd_toEndOf="@+id/btnPengaturan"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="@+id/btnPengaturan"
+        app:layout_constraintTop_toTopOf="@+id/btnPengaturan" />
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        />
+
+
 </FrameLayout>

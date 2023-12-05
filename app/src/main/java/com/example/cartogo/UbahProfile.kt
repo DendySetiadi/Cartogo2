@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.cartogo.databinding.FragmentUbahProfileBinding
 
@@ -46,6 +47,12 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
         binding.gantiProfil.setOnClickListener {
             openGallery()
         }
+        // Observe changes in editNamaValue and update editNama1 accordingly
+        viewModel.editNamaValue.observe(viewLifecycleOwner, Observer { newValue ->
+            newValue?.let {
+                binding.editnama.setText(newValue)
+            }
+        })
     }
 
     private fun openGallery() {
