@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/rectangle_29"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btnPengaturan"
         android:layout_width="407dp"
@@ -38,15 +28,17 @@
         app:layout_constraintTop_toTopOf="@+id/btnPengaturan" />
 
     <ImageView
-        android:id="@+id/mukaorang"
+        android:id="@+id/profill"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/baseline_account_circle_24"
-        app:layout_constraintEnd_toEndOf="@+id/btnPengaturan"
-        app:layout_constraintHorizontal_bias="0.039"
-        app:layout_constraintStart_toStartOf="@+id/btnPengaturan"
-        app:layout_constraintTop_toTopOf="@+id/btnPengaturan" />
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/baseline_account_circle_24"
+        android:background="@drawable/circle_background"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"/>
+
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"

@@ -27,13 +27,13 @@ class Profile : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(ProfileView::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ProfileView::class.java)
 
-        viewModel.profileImageUri.observe(viewLifecycleOwner, Observer { uri ->
-            uri?.let {
-                binding.mukaorang.setImageURI(uri)
+        viewModel.profileImageUri.observe(viewLifecycleOwner, Observer { uri -> uri?.let {
+            binding.profill.setImageURI(uri)
             }
         })
+
         binding.btnPengaturan.setOnClickListener {
             try {
                 // Kode yang dapat menyebabkan crash, jika ada

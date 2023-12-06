@@ -12,6 +12,7 @@ class ProfileView : ViewModel() {
     fun updateProfileImageUri(uri: Uri) {
         _profileImageUri.value = uri
     }
+
     private val _editNamaValue = MutableLiveData<String>()
     val editNamaValue: LiveData<String> get() = _editNamaValue
 

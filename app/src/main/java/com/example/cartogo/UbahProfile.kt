@@ -39,11 +39,6 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(requireActivity()).get(ProfileView::class.java)
-
-        profileManager = ProfileManager(requireContext())
-
-        binding.profil.setImageURI(profileManager.getProfileImageUri())
-
         binding.gantiProfil.setOnClickListener {
             openGallery()
         }
@@ -66,9 +61,6 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
             val selectedImageUri: Uri = data.data!!
             binding.profil.setImageURI(selectedImageUri)
-
-            profileManager.setProfileImageUri(selectedImageUri)
-
             viewModel.updateProfileImageUri(selectedImageUri)
         }
     }
