@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ProfileView : ViewModel() {
+    var profileManager: ProfileManager? = null
     private val _profileImageUri = MutableLiveData<Uri?>()
     val profileImageUri: LiveData<Uri?> get()= _profileImageUri
 
@@ -13,10 +14,10 @@ class ProfileView : ViewModel() {
         _profileImageUri.value = uri
     }
 
-    private val _editNamaValue = MutableLiveData<String>()
-    val editNamaValue: LiveData<String> get() = _editNamaValue
+    private val _userName = MutableLiveData<String>()
+    val userName: LiveData<String> get() = _userName
 
-    fun setEditNamaValue(newValue: String) {
-        _editNamaValue.value = newValue
+    fun updateUserName(newName: String) {
+        _userName.value = newName
     }
 }

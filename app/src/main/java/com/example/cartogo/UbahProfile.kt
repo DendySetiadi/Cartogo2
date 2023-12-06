@@ -23,6 +23,8 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
     private lateinit var profileManager: ProfileManager
     private lateinit var viewModel: ProfileView
 
+
+
     companion object {
         const val PICK_IMAGE_REQUEST = 1
     }
@@ -37,22 +39,32 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(requireActivity()).get(ProfileView::class.java)
-
+        viewModel.profileManager = ProfileManager(requireContext())
         profileManager = ProfileManager(requireContext())
-
         binding.profil.setImageURI(profileManager.getProfileImageUri())
-
         binding.gantiProfil.setOnClickListener {
             openGallery()
         }
-        // Observe changes in editNamaValue and update editNama1 accordingly
-        viewModel.editNamaValue.observe(viewLifecycleOwner, Observer { newValue ->
-            newValue?.let {
-                binding.editnama.setText(newValue)
+
+        binding.editnama.setText(viewModel.profileManager?.userName)
+        binding.editemail.setText(viewModel.profileManager?.userEmail)
+        binding.edittelepon.setText(viewModel.profileManager?.userTelepon)
+        binding.editjk.setText(viewModel.profileManager?.userJk)
+
+        binding.simpan.setOnClickListener {
+            val newName = binding.editnama.text.toString()
+            val newEmail = binding.editemail.text.toString()
+            val newTelepon = binding.edittelepon.text.toString()
+            val newJk = binding.editjk.text.toString()
+
+            viewModel.profileManager?.apply {
+                userName = newName
+                userEmail = newEmail
+                userTelepon = newTelepon
+                userJk = newJk
             }
-        })
+        }
     }
 
     private fun openGallery() {
