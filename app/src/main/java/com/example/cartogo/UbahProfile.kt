@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.cartogo.databinding.FragmentUbahProfileBinding
 
@@ -22,7 +23,6 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
     private lateinit var gantiProfil: Button
     private lateinit var profileManager: ProfileManager
     private lateinit var viewModel: ProfileView
-
 
 
     companion object {
@@ -54,6 +54,7 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
 
         binding.simpan.setOnClickListener {
             val newName = binding.editnama.text.toString()
+            viewModel.updateUserName(newName)
             val newEmail = binding.editemail.text.toString()
             val newTelepon = binding.edittelepon.text.toString()
             val newJk = binding.editjk.text.toString()

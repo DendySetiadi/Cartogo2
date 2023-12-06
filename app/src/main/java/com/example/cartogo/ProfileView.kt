@@ -15,7 +15,8 @@ class ProfileView : ViewModel() {
     }
 
     private val _userName = MutableLiveData<String>()
-    val userName: LiveData<String> get() = _userName
+    val userName: LiveData<String>
+        get() = _userName
 
     fun updateUserName(newName: String) {
         _userName.value = newName

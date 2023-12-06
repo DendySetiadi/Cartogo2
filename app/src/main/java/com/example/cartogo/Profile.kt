@@ -34,6 +34,13 @@ class Profile : Fragment(R.layout.fragment_profile) {
             }
         })
 
+        viewModel.userName.observe(viewLifecycleOwner, Observer { newValue ->
+            newValue?.let {
+                binding.editNamaa.setText(newValue)
+            }
+        })
+
+
         binding.btnPengaturan.setOnClickListener {
             try {
                 // Kode yang dapat menyebabkan crash, jika ada

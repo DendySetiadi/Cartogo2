@@ -16,12 +16,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editNama1"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:textSize="15dp"
+    <TextView
+        android:id="@+id/editNamaa"
+        android:layout_width="261dp"
+        android:layout_height="39dp"
         android:layout_marginLeft="80dp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,15 +29,15 @@
 
     <ImageView
         android:id="@+id/profill"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="64dp"
+        android:layout_height="65dp"
         android:layout_marginLeft="5dp"
-        app:srcCompat="@drawable/baseline_account_circle_24"
-        android:background="@drawable/circle_background"
         android:layout_marginBottom="16dp"
-        android:scaleType="centerCrop"
+        android:background="@drawable/circle_background"
         android:clipToOutline="true"
-        android:outlineProvider="background"/>
+        android:outlineProvider="background"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
