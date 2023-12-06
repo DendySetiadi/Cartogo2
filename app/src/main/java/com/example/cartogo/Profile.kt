@@ -31,7 +31,7 @@ class Profile : Fragment(R.layout.fragment_profile) {
 
         viewModel.profileImageUri.observe(viewLifecycleOwner, Observer { uri -> uri?.let {
             binding.profill.setImageURI(uri)
-            }
+        }
         })
 
         viewModel.userName.observe(viewLifecycleOwner, Observer { newValue ->
