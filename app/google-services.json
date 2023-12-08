@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "748878665843",
+    "project_id": "cartogo-70aec",
+    "storage_bucket": "cartogo-70aec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748878665843:android:f26202edfe6c081b617206",
+        "android_client_info": {
+          "package_name": "com.example.cartogo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr1DG73ZFe_Tb2D8jU0l_CBOxYDlIMzsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -104,7 +104,8 @@ class Lepaskunci : Fragment(R.layout.fragment_lepas_kunci) {
         }
 
         binding.masuk.setOnClickListener {
-            val intent = Intent(requireContext(), MainActivity::class.java)
+            // Intent untuk memulai aktivitas dengan RelativeLayout
+            val intent = Intent(requireContext(), Masuk::class.java)
             startActivity(intent)
         }
     }

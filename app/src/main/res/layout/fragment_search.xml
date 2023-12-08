@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_search.xml -->
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,37 +7,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Search">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Tambahkan CardView di sini untuk setiap item -->
         <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="220dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="28dp"
             app:cardElevation="8dp"
             app:cardBackgroundColor="#F1F1F1">
 
-            <!-- Your content for the first CardView goes here -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <!-- Tambahkan layout item_mobil di sini -->
+                <ImageView
+                    android:id="@+id/imageMobil"
+                    android:layout_width="match_parent"
+                    android:layout_height="152dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/placeholder_image" />
+
+                <TextView
+                    android:id="@+id/textMerk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imageMobil"
+                    android:paddingTop="8dp"
+                    android:text="Merk Mobil"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textHarga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textMerk"
+                    android:paddingTop="8dp"
+                    android:text="Harga Mobil"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="220dp"
-            android:layout_gravity="right"
-            app:cardCornerRadius="28dp"
-            app:cardElevation="8dp"
-            app:cardBackgroundColor="#F1F1F1">
+        <!-- Tambahkan CardView lainnya jika diperlukan -->
 
-            <!-- Your content for the second CardView goes here -->
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Any additional content goes here -->
-
-    </FrameLayout>
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

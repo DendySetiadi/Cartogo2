@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LupaSandi">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="428dp"
+        android:layout_height="730dp"
+        app:srcCompat="@drawable/rectangle_29"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
+    <ImageView
+        android:id="@+id/putihatas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/putihatas"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/cartogologo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/cartogologo" />
+
+    <TextView
+        android:id="@+id/sandi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="230dp"
+        android:text="Masukkan Email atau Username untuk mengubah kata sandi"
+        android:textStyle="bold"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/tombollanjut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tombolmasuk"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="95dp" />
+
+    <TextView
+        android:id="@+id/lanjut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="410dp"
+        android:text="Lanjut"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="290dp"
+        android:hint="Masukkan Email atau Username"
+        app:boxBackgroundColor="@color/abumuda" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/masukemail2"
+            android:layout_width="303dp"
+            android:layout_height="55dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

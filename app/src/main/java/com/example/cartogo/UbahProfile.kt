@@ -66,6 +66,7 @@ class UbahProfile : Fragment(R.layout.fragment_ubah_profile) {
                 userJk = newJk
             }
         }
+
     }
 
     private fun openGallery() {

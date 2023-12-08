@@ -1,55 +1,125 @@
+// Search.kt
 package com.example.cartogo
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 
 class Search : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+        // Initialize Firebase using the application context
+        FirebaseApp.initializeApp(requireContext())
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        val view = inflater.inflate(R.layout.fragment_search, container, false)
+
+        // Fetch data from Firestore
+        fetchDataFromFirestore()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Search.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Search().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun fetchDataFromFirestore() {
+        // Fetch data from Firestore
+        val firestore = FirebaseFirestore.getInstance()
+        val mobilCollection = firestore.collection("mobil")
+
+        // Example: You can dynamically add CardViews based on the retrieved data
+        mobilCollection.get()
+            .addOnSuccessListener { querySnapshot ->
+                for (document in querySnapshot.documents) {
+                    val merk = document.getString("merk") ?: ""
+                    val gambar = document.getString("gambarUrl") ?: ""
+                    val harga = document.getLong("harga")?.toInt() ?: 0
+
+                    // Example: You can dynamically create CardViews here and add them to the LinearLayout
+                    val cardView = createCardView(merk, gambar, harga)
+                    val linearLayout = view?.findViewById<LinearLayout>(R.id.linearLayoutContainer)
+                    linearLayout?.addView(cardView)
                 }
             }
+            .addOnFailureListener { exception ->
+                // Handle error
+            }
+        Log.d("SearchFragment", "Fetching data from Firestore")
+        mobilCollection.get()
+            .addOnSuccessListener { querySnapshot ->
+                for (document in querySnapshot.documents) {
+                    // ...
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("SearchFragment", "Error fetching data: $exception")
+            }
+
     }
+
+    // Example: Create a CardView programmatically
+    private fun createCardView(merk: String, gambar: String, harga: Int): CardView {
+        val cardView = CardView(requireContext())
+        val layoutParams = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        layoutParams.bottomMargin = resources.getDimensionPixelSize(R.dimen.card_margin_bottom)
+        cardView.layoutParams = layoutParams
+
+        val relativeLayout = RelativeLayout(requireContext())
+        cardView.addView(relativeLayout)
+
+        val imageView = ImageView(requireContext())
+        imageView.layoutParams = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.MATCH_PARENT,
+            resources.getDimensionPixelSize(R.dimen.card_image_height)
+        )
+        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+        // Set imageView attributes (id, width, height, scaleType, src, etc.)
+        // For example, if you are using Picasso for image loading:
+        // Picasso.get().load(gambar).placeholder(R.drawable.placeholder_image).into(imageView)
+        relativeLayout.addView(imageView)
+
+        val textMerk = TextView(requireContext())
+        textMerk.layoutParams = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.MATCH_PARENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
+        textMerk.text = merk
+        // Set textMerk attributes (id, width, height, text, textSize, etc.)
+        relativeLayout.addView(textMerk)
+
+        val textHarga = TextView(requireContext())
+        textHarga.layoutParams = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.MATCH_PARENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
+        textHarga.text = "Harga: $harga"
+        // Set textHarga attributes (id, width, height, text, textSize, etc.)
+        relativeLayout.addView(textHarga)
+// Load gambar dari URL menggunakan Picasso
+        Picasso.get().load(gambar).placeholder(R.drawable.placeholder_image).into(imageView)
+
+        // Set values for imageView, textMerk, and textHarga based on the passed parameters
+
+        return cardView
+
+    }
+
 }
